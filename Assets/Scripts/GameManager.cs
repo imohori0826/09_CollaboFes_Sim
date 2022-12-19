@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     //èD‚ÉƒJ[ƒh‚ğ¶¬
     [SerializeField] Transform HandSkillTansform;
-    [SerializeField] GameObject skillPrefab;
+    [SerializeField] SkillController SkillPrefab;
 
     void Start()
     {
@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     }
 
     void CreateSkill(Transform space) {
-        Instantiate(skillPrefab, space, false);
+        SkillController skill = Instantiate(SkillPrefab, space, false);
+        skill.Init(3);
     }
 
 }
