@@ -18,8 +18,28 @@ public class SkillView : MonoBehaviour
     [SerializeField] TextMeshProUGUI buffPerText;
     [SerializeField] TextMeshProUGUI buffTurnText;
     [SerializeField] Image iconImage;
+    //多分使わない。スキルが使用可能かを表示するのに使う
+    [SerializeField] GameObject selectablePanel;
+
+
 
     public void Show(SkillModel skillModel) {
+        charaNameText.text = skillModel.charaName;
+        skillNameText.text = skillModel.skillName;
+        appealAtText.text = skillModel.appealAt.ToString() + "倍";
+        attentionPerText.text = skillModel.attentionPer.ToString()+"%";
+        attentionTurnText.text = skillModel.attentionTurn.ToString() + "ターン";
+        damageCutPerText.text = skillModel.damageCutPer.ToString() + "%";
+        damageCutTurnText.text = skillModel.damageCutTurn.ToString() + "ターン";
+        intererstPerText.text = skillModel.interestPer.ToString() + "%";
+        interestTurnText.text = skillModel.interestTurn.ToString() + "ターン";
+        buffPerText.text = skillModel.buffPer.ToString() + "%";
+        buffTurnText.text = skillModel.buffTurn.ToString() + "ターン";
+        iconImage.sprite = skillModel.icon;
+    }
+
+    public void Refresh(SkillModel skillModel)
+    {
         charaNameText.text = skillModel.charaName;
         skillNameText.text = skillModel.skillName;
         appealAtText.text = skillModel.appealAt.ToString();
@@ -33,4 +53,11 @@ public class SkillView : MonoBehaviour
         buffTurnText.text = skillModel.buffTurn.ToString();
         iconImage.sprite = skillModel.icon;
     }
+
+
+    //アクティブの表示非表示切り替え
+    public void SetActiveSelectablePanel(bool flag) {
+        //selectablePanel.SetActive(flag);
+    }
+
 }

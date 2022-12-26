@@ -28,6 +28,12 @@ public class SkillMovement : MonoBehaviour, IDragHandler,IBeginDragHandler,IEndD
         transform.SetParent(defaultParent, false);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
-    
+
+    public void SetSkillTransform(Transform parentTransform) {
+        defaultParent = parentTransform;
+        transform.SetParent(defaultParent);
+    }
+
+
     
 }
